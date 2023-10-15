@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <h1>Sorteio 2v2</h1>
+
+    <div class="container">
+        <div class="sorteio-pane">
+            <h2>Equipes</h2>
+            <label for="nomes-equipes">Nomes (separados por vírgula): </label>
+            <input type="text" id="nomes-equipes">
+            <button onclick="sortearEquipes()">Sortear Equipes</button>
+            <p id="resultado-equipes"></p>
+        </div>
+
+        <div class="sorteio-pane">
+            <h2>Ordem de Bans/Protects</h2>
+            <label for="nomes-lista">Nomes (separados por vírgula): </label>
+            <input type="text" id="nomes-lista">
+            <button onclick="sortearOrdemNomes()">Sortear Ordem</button>
+            <ul id="resultado-ordem-nomes"></ul>
+        </div>
+
+        <div class="sorteio-pane">
+            <h2>Mapa</h2>
+            <label for="nomes-unico">Nomes (separados por vírgula): </label>
+            <input type="text" id="nomes-unico">
+            <button onclick="sortearNomeUnico()">Sortear Nome</button>
+            <p id="resultado-nome-unico"></p>
+        </div>
+    </div>
+
+    <button onclick="exibirJanelaDeBanimentos()">Prosseguir para Banimentos</button>
+
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

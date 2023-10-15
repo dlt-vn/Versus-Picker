@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados</title>
+</head>
+<body>
+    <h1>Resultados da Primeira Página</h1>
+
+    <!-- Divs para exibir os resultados -->
+    <div id="resultado-equipes"></div>
+    <div id="resultado-ordem-nomes"></div>
+    <div id="resultado-nome-unico"></div>
+
+    <script>
+        // Recupera os resultados da primeira página do LocalStorage
+        const resultadoEquipes = localStorage.getItem('resultadoEquipes');
+        const resultadoOrdemNomes = localStorage.getItem('resultadoOrdemNomes');
+        const resultadoNomeUnico = localStorage.getItem('resultadoNomeUnico');
+
+        // Exibe os resultados na segunda página
+        document.getElementById('resultado-equipes').innerHTML = resultadoEquipes || '';
+        document.getElementById('resultado-ordem-nomes').innerHTML = resultadoOrdemNomes || '';
+        document.getElementById('resultado-nome-unico').innerHTML = resultadoNomeUnico || '';
+    </script>
+</body>
+</html>
