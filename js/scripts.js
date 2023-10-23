@@ -29,7 +29,7 @@ function formarEquipes(nomesArray) {
     return [equipe1, equipe2];
 }
 
-function sortearNomeUnico() {
+/* function sortearNomeUnico() {
     const nomesLista = document.getElementById('nomes-unico').value;
     const nomes = nomesLista.split(',').map(nome => nome.trim());
 
@@ -38,8 +38,64 @@ function sortearNomeUnico() {
         return;
     }
 
-    const nomeSorteado = nomes[Math.floor(Math.random() * nomes.length)];
-    document.getElementById('resultado-nome-unico').textContent = `Mapa: ${nomeSorteado}`;
+    const mapaSorteado = nomes[Math.floor(Math.random() * nomes.length)];
+    document.getElementById('resultado-nome-unico').textContent = `Mapa: ${mapaSorteado}`;
+} */
+const listaMapasBO3 = ["Mapa1", "Mapa2", "Mapa3"];
+const listaMapasBO4 = ["MapaA", "MapaB", "MapaC"];
+const listaMapasCW = ["MapX", "MapY", "MapZ"];
+
+function atualizarListaPredefinida() {
+    const select = document.getElementById('nomes-unico');
+    const selectedOption = select.value;
+
+    if (selectedOption === "other") {
+        document.getElementById('nome-unico-input').style.display = 'block';
+    } else {
+        document.getElementById('nome-unico-input').style.display = 'none';
+    }
+}
+
+function sortearNomePredefinido() {
+    const selectedOption = document.getElementById('nomes-unico').value;
+
+    if (selectedOption === "other") {
+        // Não faz nada aqui, o sorteio ocorrerá no botão "Sortear Nome Personalizado"
+        return;
+    }
+
+    let listaMapas = [];
+
+    switch (selectedOption) {
+        case "bo3":
+            listaMapas = listaMapasBO3;
+            break;
+        case "bo4":
+            listaMapas = listaMapasBO4;
+            break;
+        case "bocw":
+            listaMapas = listaMapasCW;
+            break;
+    }
+
+    if (listaMapas.length > 0) {
+        const indiceSorteado = Math.floor(Math.random() * listaMapas.length);
+        const mapaSorteado = listaMapas[indiceSorteado];
+        document.getElementById('resultado-nome-unico').textContent = `Mapa: ${mapaSorteado}`;
+    }
+}
+
+function sortearNomePersonalizado() {
+    const nomesLista = document.getElementById('nome-unico-input').value;
+    const nomes = nomesLista.split(',').map(nome => nome.trim());
+
+    if (nomes.length > 0) {
+        const indiceSorteado = Math.floor(Math.random() * nomes.length);
+        const mapaSorteado = nomes[indiceSorteado];
+        document.getElementById('resultado-nome-unico').textContent = `Mapa: ${mapaSorteado}`;
+    } else {
+        alert('Por favor, insira pelo menos um mapa separado por vírgula.');
+    }
 }
 
 // Função para embaralhar um array
@@ -104,6 +160,6 @@ function mostrarResultados() {
         resultadosDiv.innerHTML += `<p>${resultado.nome} - Bans/Protects: ${resultado.textoCaixa}</p>`;
     });
 
-    resultadosDiv.innerHTML += `<p>Sorteio de Nome Único: ${resultadoNomeUnico}</p>`;
+    resultadosDiv.innerHTML += `<p>Sorteio de Nome Único: ${mapaSorteado}</p>`;
 }
 

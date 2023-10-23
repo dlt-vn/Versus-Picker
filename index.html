@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteador</title>
+    <title>Sorteador CW</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
+
 <body>
     <h1>Sorteio 2v2</h1>
 
@@ -22,17 +24,29 @@
             <label for="nomes-lista">Nomes (separados por vírgula): </label>
             <input type="text" id="nomes-lista">
             <button onclick="sortearOrdemNomes()">Sortear Ordem</button>
-            <b><ul id="resultado-ordem-nomes"></ul></b>
+            <b>
+                <ul id="resultado-ordem-nomes"></ul>
+            </b>
         </div>
 
         <div class="sorteio-pane">
             <h2>Mapa</h2>
-            <label for="nomes-unico">Nomes (separados por vírgula): </label>
-            <input type="text" id="nomes-unico">
-            <button onclick="sortearNomeUnico()">Sortear Nome</button>
+            <label for="nomes-unico">Jogo: </label>
+            <select name="nomes-unico" id="nomes-unico" onchange="atualizarListaPredefinida()">
+                <option value="bo3">Black Ops 3</option>
+                <option value="bo4">Black Ops 4</option>
+                <option value="bocw">Cold War</option>
+                <option value="other">Personalizado</option>
+            </select><br>
+            <input type="text" id="nome-unico-input" placeholder="Digite nomes separados por vírgula" style="display: none;">
+            <button onclick="sortearNomePredefinido()">Sortear Nome Predefinido</button>
+            <button onclick="sortearNomePersonalizado()">Sortear Nome Personalizado</button>
             <p id="resultado-nome-unico"></p>
         </div>
-    </div>
+        
+        
+        
+    </div>        
 
     <button onclick="mostrarResultados()">Mostrar Resultados</button>
 
@@ -46,4 +60,5 @@
 
     <script src="js/scripts.js"></script>
 </body>
+
 </html>
