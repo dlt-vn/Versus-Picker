@@ -22,7 +22,7 @@
             <label for="nomes-lista">Nomes (separados por vírgula): </label>
             <input type="text" id="nomes-lista">
             <button onclick="sortearOrdemNomes()">Sortear Ordem</button>
-            <ul id="resultado-ordem-nomes"></ul>
+            <b><ul id="resultado-ordem-nomes"></ul></b>
         </div>
 
         <div class="sorteio-pane">
@@ -34,7 +34,14 @@
         </div>
     </div>
 
-    <button onclick="exibirJanelaDeBanimentos()">Prosseguir para Banimentos</button>
+    <button onclick="mostrarResultados()">Mostrar Resultados</button>
+
+    <div class="container">
+        <div class="bans-pane" id="resultados">
+            <h2>Resultados da Ordem de Nomes</h2>
+            <ul id="resultados"></ul>
+        </div>
+    </div>
 
 
     <script src="js/scripts.js"></script>

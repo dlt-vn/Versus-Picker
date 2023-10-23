@@ -29,26 +29,6 @@ function formarEquipes(nomesArray) {
     return [equipe1, equipe2];
 }
 
-function sortearOrdemNomes() {
-    const nomesLista = document.getElementById('nomes-lista').value;
-    const nomes = nomesLista.split(',').map(nome => nome.trim());
-
-    if (nomes.length < 2) {
-        alert('Por favor, insira pelo menos dois nomes.');
-        return;
-    }
-
-    const nomesEmbaralhados = shuffleArray(nomes);
-    const ul = document.getElementById('resultado-ordem-nomes');
-    ul.innerHTML = '';
-
-    for (let i = 0; i < nomesEmbaralhados.length; i++) {
-        const li = document.createElement('li');
-        li.textContent = `${i + 1}º: ${nomesEmbaralhados[i]}`;
-        ul.appendChild(li);
-    }
-}
-
 function sortearNomeUnico() {
     const nomesLista = document.getElementById('nomes-unico').value;
     const nomes = nomesLista.split(',').map(nome => nome.trim());
@@ -70,3 +50,60 @@ function shuffleArray(array) {
     }
     return array;
 }
+
+// Função para exibir a ordem de nomes
+function sortearOrdemNomes() {
+    const nomesLista = document.getElementById('nomes-lista').value;
+    const nomes = nomesLista.split(',').map(nome => nome.trim());
+
+    if (nomes.length < 2) {
+        alert('Por favor, insira pelo menos dois nomes.');
+        return;
+    }
+
+    const nomesEmbaralhados = shuffleArray(nomes);
+    const ul = document.getElementById('resultado-ordem-nomes');
+    ul.innerHTML = '';
+
+    for (let i = 0; i < nomesEmbaralhados.length; i++) {
+        const li = document.createElement('li');
+        li.textContent = `${i + 1}º: ${nomesEmbaralhados[i]}`;
+
+        // Cria uma caixa de texto ao lado de cada nome
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = 'Digite algo';
+        li.appendChild(input);
+
+        ul.appendChild(li);
+    }
+}
+
+
+function mostrarResultados() {
+    // Obtenha os resultados do sorteio de equipes
+    const resultadoEquipes = document.getElementById('resultado-equipes').textContent;
+
+    // Obtenha os resultados do sorteio de ordem de nomes
+    const ul = document.getElementById('resultado-ordem-nomes');
+    const resultadosOrdemNomes = [];
+    for (let i = 0; i < ul.children.length; i++) {
+        const nome = ul.children[i].textContent.split(': ')[1];
+        const textoCaixa = ul.children[i].getElementsByTagName('input')[0].value;
+        resultadosOrdemNomes.push({ nome, textoCaixa });
+    }
+
+    // Obtenha o resultado do sorteio de nome único
+    const resultadoNomeUnico = document.getElementById('resultado-nome-unico').textContent;
+
+    // Exiba os resultados onde você preferir na página
+    const resultadosDiv = document.getElementById('resultados');
+    resultadosDiv.innerHTML = '<h2>Resultados:</h2>';
+    resultadosDiv.innerHTML += `<p>Sorteio de Equipes: ${resultadoEquipes}</p>`;
+    resultadosOrdemNomes.forEach((resultado, index) => {
+        resultadosDiv.innerHTML += `<p>${resultado.nome} - Bans/Protects: ${resultado.textoCaixa}</p>`;
+    });
+
+    resultadosDiv.innerHTML += `<p>Sorteio de Nome Único: ${resultadoNomeUnico}</p>`;
+}
+
