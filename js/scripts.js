@@ -41,9 +41,9 @@ function formarEquipes(nomesArray) {
     const mapaSorteado = nomes[Math.floor(Math.random() * nomes.length)];
     document.getElementById('resultado-nome-unico').textContent = `Mapa: ${mapaSorteado}`;
 } */
-const listaMapasBO3 = ["Mapa1", "Mapa2", "Mapa3"];
-const listaMapasBO4 = ["MapaA", "MapaB", "MapaC"];
-const listaMapasCW = ["MapX", "MapY", "MapZ"];
+const listaMapasBO3 = ["Aquarium", "Breach", "Combine", "Evac", "Exodus", "Fringe", "Hacoc", "Hunted", "Infection", "Metro", "Redwood", "Stronghold", "NUK3TOWN"];
+const listaMapasBO4 = ["Arsenal", "Contraband", "Firing Range", "Frequency", "Gridlock", "Hacienda", "Icebreaker", "Jungle", "Militia", "Morocco", "Payload", "Seaside", "Slums", "Summit"];
+const listaMapasCW = ["Armada", "Cartel", "Checkmate", "Crossroads", "Garrison", "Miami", "Moscow", "Satellite", "Nuketown", "Raid", "The Pines", "Express", "Apocalypse", "Miami Strike", "Diesel", "Yamantau", "Standoff", "Collateral", "Hijacked", "Rush", "Echelon", "Drive-In", "Slums", "Zoo", "Amerika", "Deprogram", "WMD", "Jungle"];
 
 function atualizarListaPredefinida() {
     const select = document.getElementById('nomes-unico');
