@@ -17,10 +17,10 @@ node_modules
 
 ._scripts.js
 
-._gitignore
+._.gitignore
 
-._git
+._.git
 
-._gitattributes
+._.gitattributes
 
 ._**
