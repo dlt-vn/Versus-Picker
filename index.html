@@ -13,47 +13,47 @@
     <div class="container">
         <div class="sorteio-pane">
             <h2>Equipes</h2>
-            <label for="nomes-equipes">Nomes (separados por vírgula): </label>
-            <input type="text" id="nomes-equipes">
-            <button onclick="sortearEquipes()">Sortear Equipes</button>
-            <p id="resultado-equipes"></p>
+            <label for="team-names">Nomes (separados por vírgula): </label>
+            <input type="text" id="team-names">
+            <button onclick="raffleTeams()">Sortear Equipes</button>
+            <p id="team-results"></p>
         </div>
 
         <div class="sorteio-pane">
             <h2>Ordem de Bans/Protects</h2>
-            <label for="nomes-lista">Nomes (separados por vírgula): </label>
-            <input type="text" id="nomes-lista">
-            <button onclick="sortearOrdemNomes()">Sortear Ordem</button>
+            <label for="names-list">Nomes (separados por vírgula): </label>
+            <input type="text" id="names-list">
+            <button onclick="raffleOrder()">Sortear Ordem</button>
             <b>
-                <ul id="resultado-ordem-nomes"></ul>
+                <ul id="order-result"></ul>
             </b>
         </div>
 
         <div class="sorteio-pane">
             <h2>Mapa</h2>
-            <label for="nomes-unico">Jogo: </label>
-            <select name="nomes-unico" id="nomes-unico" onchange="atualizarListaPredefinida()">
+            <label for="map">Jogo: </label>
+            <select name="map" id="map" onchange="updateDefaultList()">
                 <option value="bo3">Black Ops 3</option>
                 <option value="bo4">Black Ops 4</option>
                 <option value="bocw">Cold War</option>
                 <option value="other">Personalizado</option>
             </select><br>
-            <input type="text" id="nome-unico-input" placeholder="Digite nomes separados por vírgula" style="display: none;">
-            <button onclick="sortearNomePredefinido()">Sortear Nome Predefinido</button>
-            <button onclick="sortearNomePersonalizado()">Sortear Nome Personalizado</button>
-            <p id="resultado-nome-unico"></p>
+            <input type="text" id="map-input" placeholder="Digite nomes separados por vírgula" style="display: none;">
+            <button onclick="raffleMap()">Sortear Nome Predefinido</button>
+            <button onclick="raffleCustomMap()">Sortear Nome Personalizado</button>
+            <p id="map-result"></p>
         </div>
         
         
         
     </div>        
 
-    <button onclick="mostrarResultados()">Mostrar Resultados</button>
+    <button onclick="showResults()">Mostrar resultados</button>
 
     <div class="container">
-        <div class="bans-pane" id="resultados">
-            <h2>Resultados da Ordem de Nomes</h2>
-            <ul id="resultados"></ul>
+        <div class="bans-pane" id="results">
+            <h2>Resultados</h2>
+            <ul id="results"></ul>
         </div>
     </div>
 
